@@ -6,4 +6,10 @@ files:
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/6666#comment
 status: Unchecked
+feedback:
+  message: |-
+    Connection to server was interrupted
+
+    timeout
+  time: Thu, 25 Mar 2021 22:01:36 UTC
 record: -1
