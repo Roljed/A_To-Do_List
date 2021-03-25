@@ -5,5 +5,8 @@ files:
   text: '# start a RockBand here'
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/6667#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Thu, 25 Mar 2021 22:13:36 UTC
 record: -1
