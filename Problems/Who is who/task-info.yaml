@@ -15,11 +15,5 @@ files:
         home = "Hell"
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/6668#comment
-status: Unchecked
-feedback:
-  message: |-
-    Connection to server was interrupted
-
-    timeout
-  time: Thu, 25 Mar 2021 22:07:04 UTC
+status: Solved
 record: -1
