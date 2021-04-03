@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import date, datetime
 from sqlalchemy import create_engine
 from sqlalchemy import Column, Integer, String, Date
 from sqlalchemy.ext.declarative import declarative_base
@@ -24,18 +24,23 @@ Session = sessionmaker(bind=engine)
 _session = Session()
 
 
-def create_row(_task, session=_session):
-    new_row = Task(task=_task)
+def create_row(_task, _deadline, session=_session):
+    new_row = Task(task=_task, deadline=_deadline)
     session.add(new_row)
     session.commit()
 
 
 def add_task():
     task = input('Enter task\n')
-    create_row(task)
+    deadline = input('Enter deadline\n')
+    try:
+        datetime.strptime(deadline, '%Y-%m-%d')
+    except ValueError:
+        raise ValueError("Incorrect data format, should be YYYY-MM-DD")
+    create_row(task, deadline)
 
 
-def view_tasks():
+def view_today_tasks():
     rows = _session.query(Task).all()
     if rows is None or len(rows) < 1:
         print('Nothing to do!')
@@ -55,9 +60,16 @@ def view_tasks():
 
 _greeting = """
 1) Today's tasks
-2) Add task
+2) Week's tasks
+3) All tasks
+4) Add task
 0) Exit
 """
+
+
+def view_week_tasks():
+    pass
+
 
 while True:
     print(_greeting)
@@ -66,8 +78,12 @@ while True:
     if input_num == 0:
         break
     elif input_num == 1:
-        view_tasks()
+        view_today_tasks()
     elif input_num == 2:
+        view_week_tasks()
+    elif input_num == 3:
+        view_all_tasks()
+    elif input_num == 4:
         add_task()
     else:
         quit(-1)
