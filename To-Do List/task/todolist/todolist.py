@@ -4,7 +4,7 @@ from sqlalchemy import Column, Integer, String, Date
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-
+# TODO need to update this
 Base = declarative_base()
 
 
